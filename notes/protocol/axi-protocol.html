@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXI Protocol Notes - Nitish Agrawal</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="circuitCanvas"></canvas>
+
+  <nav id="mainNav">
+    <a href="../../index.html#notes" class="nav-logo"><img src="../../profile.jpg" alt="Nitish Agrawal" /></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html#profile" class="nav-link">Profile</a></li>
+      <li><a href="../../index.html#experience" class="nav-link">Experience</a></li>
+      <li><a href="../../index.html#projects" class="nav-link">Projects</a></li>
+      <li><a href="../../index.html#notes" class="nav-link active">Notes</a></li>
+      <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="../../resume.pdf" class="nav-resume" target="_blank">Resume</a>
+  </nav>
+
+  <main class="section">
+    <div class="section-label">Protocols</div>
+    <h1 class="section-title">AXI <em>Protocol</em></h1>
+    <p class="section-sub">Interview-focused notes for AMBA AXI: channels, handshakes, bursts, responses, ordering, and verification checks.</p>
+
+    <article class="note-content reveal visible">
+      <h2>AXI At A Glance</h2>
+      <p>
+        AXI is a high-performance memory-mapped protocol used to connect masters, interconnects, and slaves in an SoC.
+        It separates address, data, and response activity into independent channels so reads and writes can be pipelined.
+      </p>
+
+      <h2>Five Independent Channels</h2>
+      <ul>
+        <li><strong>AW</strong>: Write address channel. Carries write address and burst attributes.</li>
+        <li><strong>W</strong>: Write data channel. Carries write payload, byte strobes, and WLAST.</li>
+        <li><strong>B</strong>: Write response channel. Returns completion status for a write transaction.</li>
+        <li><strong>AR</strong>: Read address channel. Carries read address and burst attributes.</li>
+        <li><strong>R</strong>: Read data channel. Returns read payload, response, and RLAST.</li>
+      </ul>
+
+      <h2>VALID/READY Handshake</h2>
+      <p>
+        A transfer happens only when VALID and READY are high on the same clock edge. The source drives VALID when
+        information is available, and the destination drives READY when it can accept that information.
+      </p>
+      <ul>
+        <li>VALID must not wait for READY.</li>
+        <li>Payload must remain stable while VALID is high and READY is low.</li>
+        <li>READY may be asserted before, during, or after VALID.</li>
+      </ul>
+
+      <h2>Write Transaction Flow</h2>
+      <p>
+        A write uses AW, W, and B. The master sends the write address on AW and write data beats on W. The slave returns
+        one B response after the full write burst is accepted.
+      </p>
+      <pre><code>AW: address + burst control
+W : data beat 0 ... data beat N with WLAST on final beat
+B : single write response</code></pre>
+
+      <h2>Read Transaction Flow</h2>
+      <p>
+        A read uses AR and R. The master sends the read address and burst attributes on AR. The slave returns one or more
+        R beats, marking the final beat with RLAST.
+      </p>
+
+      <h2>Burst Types</h2>
+      <ul>
+        <li><strong>FIXED</strong>: Address remains constant for every beat.</li>
+        <li><strong>INCR</strong>: Address increments by transfer size for each beat.</li>
+        <li><strong>WRAP</strong>: Address increments but wraps around a naturally aligned boundary.</li>
+      </ul>
+
+      <h2>Response Types</h2>
+      <ul>
+        <li><strong>OKAY</strong>: Normal successful access.</li>
+        <li><strong>EXOKAY</strong>: Exclusive access success.</li>
+        <li><strong>SLVERR</strong>: Slave accepted the access but reported an error.</li>
+        <li><strong>DECERR</strong>: Decode error, usually from an unmapped address region.</li>
+      </ul>
+
+      <h2>AXI4 vs AXI4-Lite</h2>
+      <ul>
+        <li><strong>AXI4</strong> supports bursts, IDs, outstanding transactions, and high-throughput pipelining.</li>
+        <li><strong>AXI4-Lite</strong> is simpler: single-beat register accesses, no bursts, and commonly used for control/status registers.</li>
+      </ul>
+
+      <h2>Verification Checklist</h2>
+      <ul>
+        <li>VALID/READY payload stability under backpressure.</li>
+        <li>Correct WLAST and RLAST timing for burst length.</li>
+        <li>Address alignment and legal burst boundary behavior.</li>
+        <li>Response checking for OKAY, SLVERR, and DECERR scenarios.</li>
+        <li>Outstanding transaction tracking and ID-based ordering rules.</li>
+        <li>Reset behavior: no stale VALID, responses, or scoreboard entries after reset.</li>
+      </ul>
+
+      <h2>Common Interview Points</h2>
+      <ul>
+        <li>AW and W channels are independent; data can arrive before, after, or alongside the address depending on design support.</li>
+        <li>A write response should be generated only after the relevant address and write data have been accepted.</li>
+        <li>Backpressure must be tested independently on every channel.</li>
+        <li>Scoreboards should model expected memory/register state and match responses per transaction ID.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

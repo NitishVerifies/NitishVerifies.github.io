@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nitish Agrawal — Design Verification Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <canvas id="circuitCanvas"></canvas>
+
+  <nav id="mainNav">
+    <div class="nav-logo">
+      <a href="#profile" class="nav-avatar-link">
+        <img src="images/profile.jpg" alt="Nitish Agrawal" class="nav-avatar-img" />
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#profile"    class="nav-link active">Profile</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects"   class="nav-link">Projects</a></li>
+      <li><a href="#notes"      class="nav-link">Notes</a></li>
+      <li><a href="#contact"    class="nav-link">Contact</a></li>
+    </ul>
+    <a href="resume.pdf" class="nav-resume" target="_blank">Resume ↗</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="profile" class="section hero-section">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-badge"><span class="badge-dot"></span>Open to opportunities</div>
+        <h1 class="hero-name">
+          <span class="name-line">Nitish</span>
+          <span class="name-line accent-line">Agrawal</span>
+        </h1>
+        <p class="hero-title">Design Verification Engineer <span class="title-sep">·</span> MTech IIT Delhi</p>
+        <p class="hero-bio">
+          Building silicon-level correctness at Qualcomm — Camera Subsystem Verification,
+          UVM testbench architecture, and LLM-driven automation that cut manual effort by 30–40%.
+          Formerly at Cadence Design Systems.
+        </p>
+        <div class="hero-links">
+          <a href="mailto:nitishagrawal35@gmail.com" class="btn btn-primary">Get in Touch</a>
+          <a href="https://linkedin.com/in/nitish-agrawal" class="btn btn-ghost" target="_blank">LinkedIn ↗</a>
+          <a href="https://github.com/nitish-agrawal" class="btn btn-ghost" target="_blank">GitHub ↗</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-num">2+</span><span class="stat-label">Years Exp.</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num">30-40%</span><span class="stat-label">Effort Cut via LLM</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num">IIT Delhi</span><span class="stat-label">MTech VLSI</span></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="tech-card">
+          <div class="tc-header">
+            <span class="tc-dot red"></span><span class="tc-dot yellow"></span><span class="tc-dot green"></span>
+            <span class="tc-title">skills.sv</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-section">
+              <span class="tc-key">// methodology</span>
+              <div class="tc-vals"><span>UVM</span><span>Constrained Random</span><span>SV Assertions</span><span>Functional Coverage</span></div>
+            </div>
+            <div class="tc-section">
+              <span class="tc-key">// protocols</span>
+              <div class="tc-vals"><span>AXI</span><span>APB</span><span>AHB</span><span>MIPI</span></div>
+            </div>
+            <div class="tc-section">
+              <span class="tc-key">// languages</span>
+              <div class="tc-vals"><span>SystemVerilog</span><span>Python</span></div>
+            </div>
+            <div class="tc-section">
+              <span class="tc-key">// eda_tools</span>
+              <div class="tc-vals"><span>Synopsys VCS</span><span>Verdi</span><span>Cadence Virtuoso</span><span>Innovus</span><span>Tempus</span></div>
+            </div>
+            <div class="tc-section">
+              <span class="tc-key">// domains</span>
+              <div class="tc-vals"><span>Camera Verification</span><span>SoC Debug</span><span>LLM Automation</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-label">Work Experience</div>
+    <h2 class="section-title">Where I've <em>Built</em></h2>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-meta">
+          <span class="tl-company">Qualcomm India Pvt Ltd.</span>
+          <span class="tl-period">Jul 2024 – Nov 2025</span>
+          <span class="tl-role">Design Verification Engineer · Bangalore</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-project">
+            <div class="tl-proj-header"><span class="proj-tag cam">Camera Verification</span></div>
+            <ul class="tl-bullets">
+              <li>Extracted functional requirements from micro-architecture documents to define block-level test plans; collaborated with design team to ensure correctness.</li>
+              <li>Root-caused a <strong>power-sequencing RTL bug</strong> using force statements to bypass the faulty signal and confirm downstream path integrity.</li>
+              <li>Identified an <strong>SoC-level register accessibility bug</strong> caused by SMMU stream-ID mismatch by correlating SMMU fault logs with register access failures.</li>
+              <li>Verified camera subsystem across <strong>5 clock speed configurations</strong> and multiple power collapse/re-initialization scenarios — validating register state retention, clock/reset sequencing, and error-free frame transfer resumption.</li>
+            </ul>
+          </div>
+          <div class="tl-project">
+            <div class="tl-proj-header"><span class="proj-tag llm">LLM-Based Test Automation</span></div>
+            <ul class="tl-bullets">
+              <li>Designed and deployed an <strong>LLM-driven model</strong> to generate C and SystemVerilog test sequences for multimedia and security IPs with targeted prompt engineering.</li>
+              <li>Led prompt engineering for fine-tuning on correct register programming and power &amp; clock sequencing.</li>
+              <li>Reduced manual effort by <strong>~30–40%</strong>, freeing engineers to focus on verification strategy over boilerplate code.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-meta">
+          <span class="tl-company">Cadence Design Systems</span>
+          <span class="tl-period">Jul 2023 – May 2024</span>
+          <span class="tl-role">Research Intern · Noida</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-project">
+            <div class="tl-proj-header"><span class="proj-tag thermal">Thermal-Driven PCB Macro Placement</span></div>
+            <ul class="tl-bullets">
+              <li>Modeled components using a <strong>2-resistor thermal network</strong> derived from four key temperature points; extended to multi-component systems via superposition.</li>
+              <li>Optimized placement reduced local temperature peaks and provided a predictive macro-positioning framework based on power profiles, improving design efficiency.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section edu-section">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic <em>Foundation</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-info">
+          <h3>MTech — VLSI Design Tools &amp; Technology</h3>
+          <p class="edu-institute">Indian Institute of Technology, Delhi</p>
+          <div class="edu-meta"><span>Aug 2022 – May 2024</span><span class="edu-gpa">7.6 / 10</span></div>
+        </div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon">🏛</div>
+        <div class="edu-info">
+          <h3>B.E. — Instrumentation &amp; Electronics</h3>
+          <p class="edu-institute">Jadavpur University</p>
+          <div class="edu-meta"><span>Aug 2018 – May 2022</span><span class="edu-gpa">8.0 / 10</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title">Things I've <em>Verified</em></h2>
+    <div class="proj-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-top"><span class="proj-period">Mar – Apr 2026</span><a href="https://github.com/nitish-agrawal" class="proj-gh" target="_blank">GitHub ↗</a></div>
+        <h3 class="proj-title">Synchronous FIFO Verification</h3>
+        <p class="proj-desc">UVM-style layered testbench: transaction, driver, monitor. Directed tests for reset, overflow, underflow, data integrity. Self-checking scoreboard: <strong>12/12 pass</strong>.</p>
+        <div class="proj-tags"><span>UVM</span><span>SystemVerilog</span><span>Functional Coverage</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top"><span class="proj-period">Feb – Mar 2026</span><a href="https://github.com/nitish-agrawal" class="proj-gh" target="_blank">GitHub ↗</a></div>
+        <h3 class="proj-title">AXI4 UVM Verification</h3>
+        <p class="proj-desc">Synthesizable AXI4-Lite DUT with write/read FSMs and SLVERR. Full UVM hierarchy, dual TLM analysis ports, coverage for burst types, transfer sizes, and FSM cross coverage.</p>
+        <div class="proj-tags"><span>AXI4-Lite</span><span>UVM</span><span>TLM</span><span>FSM</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top"><span class="proj-period">Jan – Apr 2024</span><span class="proj-collab">Prof. Kaushik Saha</span></div>
+        <h3 class="proj-title">128k×8 SRAM Memory Design</h3>
+        <p class="proj-desc">Memory array + latch-type sense amplifier in Cadence Virtuoso. Read: <strong>5–5.5 ns</strong>. Write: <strong>6–7 ns</strong>. 70–90 mV min differential, 350–450 ps sensing delay.</p>
+        <div class="proj-tags"><span>Cadence Virtuoso</span><span>SRAM</span><span>Analog Design</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top"><span class="proj-period">Jan – Apr 2023</span><span class="proj-collab">Prof. Jayadeva</span></div>
+        <h3 class="proj-title">8-bit Synchronous FIFO — RTL to GDSII</h3>
+        <p class="proj-desc">Verilog FIFO using extra-bit pointer scheme. Full RTL-to-GDSII: Cadence Genus, Innovus, setup/hold resolution, final signoff in Cadence Tempus.</p>
+        <div class="proj-tags"><span>Verilog</span><span>Genus</span><span>Innovus</span><span>Tempus</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top"><span class="proj-period">Oct – Nov 2022</span><span class="proj-collab">Prof. Jayadeva</span></div>
+        <h3 class="proj-title">Mod-6 Up/Down Counter — 65nm</h3>
+        <p class="proj-desc">Schematic &amp; layout on UMC 65nm. Gray-code sequencing to minimize switching. <strong>3.2 GHz</strong>, <strong>32 µW</strong>, <strong>113 µm²</strong> — DRC &amp; LVS clean.</p>
+        <div class="proj-tags"><span>65nm</span><span>Cadence Virtuoso</span><span>DRC/LVS</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top"><span class="proj-period">Sept – Nov 2022</span><span class="proj-collab">Prof. S.R. Sarangi</span></div>
+        <h3 class="proj-title">Branch Predictor Design</h3>
+        <p class="proj-desc">Pag predictor with GHR-based per-address tables: <strong>98% accuracy</strong>. Tournament predictor (local + global + 2-bit chooser): <strong>97% accuracy</strong> on test traces.</p>
+        <div class="proj-tags"><span>CPU Architecture</span><span>Branch Prediction</span><span>GHR</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERVIEW NOTES -->
+  <section id="notes" class="section notes-section">
+    <div class="section-label">Knowledge Base</div>
+    <h2 class="section-title">Interview <em>Notes</em></h2>
+    <p class="section-sub">Everything studied for interviews — organized by topic. Continuously updated.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterNotes('all', this)">All</button>
+      <button class="filter-btn" onclick="filterNotes('uvm', this)">UVM</button>
+      <button class="filter-btn" onclick="filterNotes('protocols', this)">Protocols</button>
+      <button class="filter-btn" onclick="filterNotes('sv', this)">SystemVerilog</button>
+      <button class="filter-btn" onclick="filterNotes('concepts', this)">Concepts</button>
+      <button class="filter-btn" onclick="filterNotes('behavioral', this)">Behavioral</button>
+    </div>
+
+    <div class="notes-grid" id="notesGrid">
+
+      <article class="note-card reveal" data-topic="uvm">
+        <div class="card-top"><span class="card-topic uvm">UVM</span><span class="card-date">Add date</span></div>
+        <h3 class="card-title">UVM Testbench Architecture</h3>
+        <p class="card-summary">Layered testbench: agent, sequencer, driver, monitor, scoreboard. TLM ports, phase ordering, objection mechanism. Factory overrides and config_db.</p>
+        <div class="card-tags"><span>uvm_agent</span><span>TLM</span><span>Phases</span></div>
+        <a href="notes/uvm-architecture.html" class="card-link">Read notes →</a>
+      </article>
+
+      <article class="note-card reveal" data-topic="protocols">
+        <div class="card-top"><span class="card-topic protocols">Protocols</span><span class="card-date">Add date</span></div>
+        <h3 class="card-title">AXI4 Protocol Deep Dive</h3>
+        <p class="card-summary">5-channel handshake (AW, W, B, AR, R), burst types, SLVERR, DECERR. AXI4-Lite vs AXI4-Full differences and verification strategy.</p>
+        <div class="card-tags"><span>VALID/READY</span><span>Burst</span><span>SLVERR</span></div>
+        <a href="notes/axi4-protocol.html" class="card-link">Read notes →</a>
+      </article>
+
+      <article class="note-card reveal" data-topic="sv">
+        <div class="card-top"><span class="card-topic sv">SystemVerilog</span><span class="card-date">Add date</span></div>
+        <h3 class="card-title">SVA — Assertion Cheatsheet</h3>
+        <p class="card-summary">Immediate vs concurrent assertions. Sequences, properties, clocking blocks. Temporal operators: |=&gt;, |-&gt;. disable iff, $past, $rose patterns.</p>
+        <div class="card-tags"><span>SVA</span><span>Properties</span><span>Clocking</span></div>
+        <a href="notes/sva-cheatsheet.html" class="card-link">Read notes →</a>
+      </article>
+
+      <article class="note-card reveal" data-topic="sv">
+        <div class="card-top"><span class="card-topic sv">SystemVerilog</span><span class="card-date">Add date</span></div>
+        <h3 class="card-title">Functional Coverage — Covergroups</h3>
+        <p class="card-summary">Covergroup, coverpoint, cross coverage. Bins, wildcards, ignore_bins, illegal_bins. Coverage closure strategy and sign-off metrics.</p>
+        <div class="card-tags"><span>Covergroup</span><span>Cross</span><span>Bins</span></div>
+        <a href="notes/functional-coverage.html" class="card-link">Read notes →</a>
+      </article>
+
+      <article class="note-card reveal" data-topic="concepts">
+        <div class="card-top"><span class="card-topic concepts">Concepts</span><span class="card-date">Add date</span></div>
+        <h3 class="card-title">SMMU &amp; Stream-ID Debug</h3>
+        <p class="card-summary">How SMMU maps stream IDs to IOVA. STE, context banks, IOMMU fault log reading. Debugging SoC-level register accessibility issues at Qualcomm.</p>
+        <div class="card-tags"><span>SMMU</span><span>IOMMU</span><span>SoC Debug</span></div>
+        <a href="notes/smmu-concepts.html" class="card-link">Read notes →</a>
+      </article>
+
+      <article class="note-card reveal" data-topic="behavioral">
+        <div class="card-top"><span class="card-topic behavioral">Behavioral</span><span class="card-date">Add date</span></div>
+        <h3 class="card-title">STAR Stories — Verification Engineer</h3>
+        <p class="card-summary">Prepared answers: debugging RTL bugs at Qualcomm, cross-team collaboration, LLM automation impact, research at Cadence, ownership and initiative.</p>
+        <div class="card-tags"><span>STAR</span><span>Leadership</span><span>Impact</span></div>
+        <a href="notes/star-stories.html" class="card-link">Read notes →</a>
+      </article>
+
+    </div>
+    <p class="notes-cta">More notes added continuously as interview prep progresses.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Let's <em>Connect</em></h2>
+    <div class="contact-grid">
+      <a href="mailto:nitishagrawal35@gmail.com" class="contact-card reveal">
+        <div class="cc-icon">✉</div>
+        <div class="cc-info"><span class="cc-label">Email</span><span class="cc-value">nitishagrawal35@gmail.com</span></div>
+        <span class="cc-arrow">→</span>
+      </a>
+      <a href="tel:+917999466545" class="contact-card reveal">
+        <div class="cc-icon">☎</div>
+        <div class="cc-info"><span class="cc-label">Phone</span><span class="cc-value">+91 7999 466 545</span></div>
+        <span class="cc-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com/in/nitish-agrawal" class="contact-card reveal" target="_blank">
+        <div class="cc-icon">in</div>
+        <div class="cc-info"><span class="cc-label">LinkedIn</span><span class="cc-value">nitish-agrawal</span></div>
+        <span class="cc-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span style="display:flex;align-items:center;gap:0.6rem;"><img src="images/profile.jpg" alt="" style="width:22px;height:22px;border-radius:50%;object-fit:cover;border:1px solid var(--accent);opacity:0.8;" /> Nitish Agrawal</span>
+      <span>Design Verification Engineer · Bangalore</span>
+      <span id="year"></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
