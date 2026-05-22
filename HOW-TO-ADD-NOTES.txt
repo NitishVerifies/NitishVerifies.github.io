@@ -1,0 +1,170 @@
+# HOW TO ADD A NEW NOTE — Plain English Guide
+# (No coding knowledge needed!)
+# =====================================================
+
+## YOUR FOLDER STRUCTURE
+yourusername.github.io/
+│
+├── index.html          ← Main website page
+├── style.css           ← Website styling (don't touch)
+├── script.js           ← Website behaviour (don't touch)
+├── resume.pdf          ← Your resume
+├── images/
+│   └── profile.jpg     ← Your profile photo
+│
+└── notes/
+    ├── TEMPLATE-copy-this.html   ← ⭐ START HERE FOR NEW NOTES
+    ├── note-style.css            ← Note styling (don't touch)
+    ├── axi4-protocol.html
+    ├── ahb-protocol.html
+    ├── uvm-architecture.html
+    └── ... (all your note files)
+
+
+=====================================================
+## STEP-BY-STEP: ADDING A NEW NOTE
+=====================================================
+
+### PART A — Create the note file (2 minutes)
+
+  1. Open the folder:  notes/
+  2. Find the file:    TEMPLATE-copy-this.html
+  3. RIGHT-CLICK it → "Copy"
+  4. RIGHT-CLICK in the same folder → "Paste"
+  5. RIGHT-CLICK the new copy → "Rename"
+  6. Name it something short, no spaces, use hyphens:
+       ✅  apb-protocol.html
+       ✅  sv-randomization.html
+       ✅  system-design-basics.html
+       ❌  My New Note.html    (spaces = broken link)
+       ❌  APB Protocol.html   (spaces = broken link)
+
+
+### PART B — Edit the note file (5-10 minutes)
+
+  Open the renamed file in VS Code (or Notepad++ / any text editor).
+  There are only 4 things to change:
+
+  1. BROWSER TAB TITLE (top of file, line ~8):
+     Change:  <title>YOUR NOTE TITLE HERE — Nitish Agrawal</title>
+     To:      <title>APB Protocol — Nitish Agrawal</title>
+
+  2. TOPIC BADGE (look for "note-topic", around line 50):
+     The class after "note-topic" controls the color.
+     Choose ONE that fits:
+       class="note-topic uvm"        → Cyan  (for UVM topics)
+       class="note-topic protocols"  → Orange (for bus protocols)
+       class="note-topic sv"         → Green  (for SystemVerilog)
+       class="note-topic concepts"   → Yellow (for CS / OS concepts)
+       class="note-topic behavioral" → Purple (for STAR stories)
+
+  3. THE HEADER (just below the topic badge):
+     Change:  <h1 class="note-title">YOUR NOTE TITLE HERE</h1>
+     To:      <h1 class="note-title">APB Protocol</h1>
+     Also update the date, read time, and tags in the meta line.
+
+  4. THE CONTENT (between the arrow comments ↓↓↓ and ↑↑↑):
+     Delete the placeholder content and write your notes.
+     Use the building blocks listed in the template comments.
+     You don't need to know HTML — just copy the snippets!
+
+
+### PART C — Add a card to the home page (2 minutes)
+
+  Open:  index.html  in VS Code
+
+  Search for (Ctrl+F):  id="notesGrid"
+
+  You'll see a block of <article class="note-card"> items.
+  Copy any existing card and paste it as a new one.
+  Then change these 5 things in your pasted card:
+
+    a. data-topic="protocols"   → change to your topic
+       Options: uvm | protocols | sv | concepts | behavioral
+
+    b. <span class="card-topic protocols">  → match same topic
+
+    c. <span class="card-date">  → your date
+
+    d. <h3 class="card-title">  → your note title
+
+    e. <p class="card-summary"> → 2-3 sentence description
+
+    f. <div class="card-tags">  → add 2-4 keyword tags
+
+    g. href="notes/YOUR-FILE-NAME.html"  → your actual filename
+
+  Example of a complete card to copy:
+  ─────────────────────────────────────────────────
+  <article class="note-card reveal" data-topic="protocols">
+    <div class="card-top">
+      <span class="card-topic protocols">Protocols</span>
+      <span class="card-date">May 2026</span>
+    </div>
+    <h3 class="card-title">APB Protocol</h3>
+    <p class="card-summary">
+      Simple low-power peripheral bus. PSEL, PENABLE, PWRITE signals.
+      Two-phase transfer: Setup and Access. No burst support.
+    </p>
+    <div class="card-tags">
+      <span>PSEL</span><span>PENABLE</span><span>2-Phase</span>
+    </div>
+    <a href="notes/apb-protocol.html" class="card-link">Read notes →</a>
+  </article>
+  ─────────────────────────────────────────────────
+
+
+### PART D — Push to GitHub (1 minute)
+
+  Open Git Bash in your repo folder and run:
+
+    git add .
+    git commit -m "Add notes: APB Protocol"
+    git push origin main
+
+  Done! Your site updates in ~30 seconds.
+
+
+=====================================================
+## QUICK REFERENCE: BUILDING BLOCKS FOR NOTES
+=====================================================
+
+HEADING:
+  <h2>Section Title</h2>
+  <h3>Sub-section</h3>
+
+PARAGRAPH:
+  <p>Your text. Use <strong>bold</strong> and <code>signal_name</code>.</p>
+
+BULLET LIST:
+  <ul>
+    <li>Point one</li>
+    <li>Point two with <strong>emphasis</strong></li>
+  </ul>
+
+CODE BLOCK:
+  <pre><code>your code or timing diagram here</code></pre>
+
+INFO BOX (blue):
+  <div class="callout">
+    <p>💡 <strong>Key insight:</strong> Text here.</p>
+  </div>
+
+WARNING BOX (orange):
+  <div class="callout warn">
+    <p>⚠️ <strong>Watch out:</strong> Text here.</p>
+  </div>
+
+TIP BOX (green):
+  <div class="callout tip">
+    <p>✅ <strong>Tip:</strong> Text here.</p>
+  </div>
+
+TABLE:
+  <table>
+    <tr><th>Column A</th><th>Column B</th></tr>
+    <tr><td>Value 1</td><td>Value 2</td></tr>
+  </table>
+
+DIVIDER LINE:
+  <hr />

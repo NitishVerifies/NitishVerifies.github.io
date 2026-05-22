@@ -222,69 +222,81 @@
   <section id="notes" class="section notes-section">
     <div class="section-label">Knowledge Base</div>
     <h2 class="section-title">Interview <em>Notes</em></h2>
-    <p class="section-sub">Everything studied for interviews — organized by topic. Continuously updated.</p>
+    <p class="section-sub">Click a topic folder to browse all notes inside it.</p>
 
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterNotes('all', this)">All</button>
-      <button class="filter-btn" onclick="filterNotes('uvm', this)">UVM</button>
-      <button class="filter-btn" onclick="filterNotes('protocols', this)">Protocols</button>
-      <button class="filter-btn" onclick="filterNotes('sv', this)">SystemVerilog</button>
-      <button class="filter-btn" onclick="filterNotes('concepts', this)">Concepts</button>
-      <button class="filter-btn" onclick="filterNotes('behavioral', this)">Behavioral</button>
+    <!-- =====================================================
+      FOLDER CARDS
+      To add a new topic folder:
+        1. Copy one <a class="folder-card"> block below
+        2. Change: href, folder-color style, folder-icon,
+                   folder-topic, folder-name, folder-desc, pills
+        3. Create the matching notes/FOLDERNAME/index.html
+        4. git add . && git commit && git push
+    ===================================================== -->
+    <div class="folder-grid">
+
+      <a href="notes/protocols/index.html" class="folder-card reveal">
+        <div class="folder-stripe" style="background:var(--accent2);"></div>
+        <div class="folder-icon">⚡</div>
+        <div class="folder-body">
+          <span class="folder-topic" style="color:var(--accent2);">Protocols</span>
+          <h3 class="folder-name">AMBA &amp; Bus Protocols</h3>
+          <p class="folder-desc">AXI4, AHB, APB, MIPI — signal-level details, timing, burst types, and verification checklists.</p>
+          <div class="folder-pills"><span>AXI4</span><span>AHB</span><span>APB</span><span>MIPI</span></div>
+        </div>
+        <span class="folder-arrow">→</span>
+      </a>
+
+      <a href="notes/systemverilog/index.html" class="folder-card reveal">
+        <div class="folder-stripe" style="background:var(--accent3);"></div>
+        <div class="folder-icon">💻</div>
+        <div class="folder-body">
+          <span class="folder-topic" style="color:var(--accent3);">SystemVerilog</span>
+          <h3 class="folder-name">SystemVerilog Language</h3>
+          <p class="folder-desc">SVA assertions, functional coverage, constrained randomization, OOP, interfaces, and clocking blocks.</p>
+          <div class="folder-pills"><span>SVA</span><span>Covergroup</span><span>Constraints</span><span>OOP</span></div>
+        </div>
+        <span class="folder-arrow">→</span>
+      </a>
+
+      <a href="notes/uvm/index.html" class="folder-card reveal">
+        <div class="folder-stripe" style="background:var(--accent);"></div>
+        <div class="folder-icon">🧪</div>
+        <div class="folder-body">
+          <span class="folder-topic" style="color:var(--accent);">UVM</span>
+          <h3 class="folder-name">Universal Verification Methodology</h3>
+          <p class="folder-desc">Testbench architecture, agents, TLM ports, phases, factory overrides, config_db — full UVM reference.</p>
+          <div class="folder-pills"><span>uvm_agent</span><span>TLM</span><span>Phases</span><span>Factory</span></div>
+        </div>
+        <span class="folder-arrow">→</span>
+      </a>
+
+      <a href="notes/concepts/index.html" class="folder-card reveal">
+        <div class="folder-stripe" style="background:#fbbf24;"></div>
+        <div class="folder-icon">🧠</div>
+        <div class="folder-body">
+          <span class="folder-topic" style="color:#fbbf24;">Concepts</span>
+          <h3 class="folder-name">CS &amp; SoC Concepts</h3>
+          <p class="folder-desc">SMMU, IOMMU, power domains, clock &amp; reset, SoC debug, OS fundamentals — theory for technical rounds.</p>
+          <div class="folder-pills"><span>SMMU</span><span>SoC Debug</span><span>Power</span><span>Clocking</span></div>
+        </div>
+        <span class="folder-arrow">→</span>
+      </a>
+
+      <a href="notes/behavioral/index.html" class="folder-card reveal">
+        <div class="folder-stripe" style="background:#c084fc;"></div>
+        <div class="folder-icon">🎯</div>
+        <div class="folder-body">
+          <span class="folder-topic" style="color:#c084fc;">Behavioral</span>
+          <h3 class="folder-name">Behavioral &amp; HR Rounds</h3>
+          <p class="folder-desc">STAR-format stories from Qualcomm and Cadence — leadership, debugging ownership, cross-team work, LLM impact.</p>
+          <div class="folder-pills"><span>STAR</span><span>Leadership</span><span>Ownership</span><span>Impact</span></div>
+        </div>
+        <span class="folder-arrow">→</span>
+      </a>
+
     </div>
-
-    <div class="notes-grid" id="notesGrid">
-
-      <article class="note-card reveal" data-topic="uvm">
-        <div class="card-top"><span class="card-topic uvm">UVM</span><span class="card-date">Add date</span></div>
-        <h3 class="card-title">UVM Testbench Architecture</h3>
-        <p class="card-summary">Layered testbench: agent, sequencer, driver, monitor, scoreboard. TLM ports, phase ordering, objection mechanism. Factory overrides and config_db.</p>
-        <div class="card-tags"><span>uvm_agent</span><span>TLM</span><span>Phases</span></div>
-        <a href="notes/uvm-architecture.html" class="card-link">Read notes →</a>
-      </article>
-
-      <article class="note-card reveal" data-topic="protocols">
-        <div class="card-top"><span class="card-topic protocols">Protocols</span><span class="card-date">Add date</span></div>
-        <h3 class="card-title">AXI4 Protocol Deep Dive</h3>
-        <p class="card-summary">5-channel handshake (AW, W, B, AR, R), burst types, SLVERR, DECERR. AXI4-Lite vs AXI4-Full differences and verification strategy.</p>
-        <div class="card-tags"><span>VALID/READY</span><span>Burst</span><span>SLVERR</span></div>
-        <a href="notes/axi4-protocol.html" class="card-link">Read notes →</a>
-      </article>
-
-      <article class="note-card reveal" data-topic="sv">
-        <div class="card-top"><span class="card-topic sv">SystemVerilog</span><span class="card-date">Add date</span></div>
-        <h3 class="card-title">SVA — Assertion Cheatsheet</h3>
-        <p class="card-summary">Immediate vs concurrent assertions. Sequences, properties, clocking blocks. Temporal operators: |=&gt;, |-&gt;. disable iff, $past, $rose patterns.</p>
-        <div class="card-tags"><span>SVA</span><span>Properties</span><span>Clocking</span></div>
-        <a href="notes/sva-cheatsheet.html" class="card-link">Read notes →</a>
-      </article>
-
-      <article class="note-card reveal" data-topic="sv">
-        <div class="card-top"><span class="card-topic sv">SystemVerilog</span><span class="card-date">Add date</span></div>
-        <h3 class="card-title">Functional Coverage — Covergroups</h3>
-        <p class="card-summary">Covergroup, coverpoint, cross coverage. Bins, wildcards, ignore_bins, illegal_bins. Coverage closure strategy and sign-off metrics.</p>
-        <div class="card-tags"><span>Covergroup</span><span>Cross</span><span>Bins</span></div>
-        <a href="notes/functional-coverage.html" class="card-link">Read notes →</a>
-      </article>
-
-      <article class="note-card reveal" data-topic="concepts">
-        <div class="card-top"><span class="card-topic concepts">Concepts</span><span class="card-date">Add date</span></div>
-        <h3 class="card-title">SMMU &amp; Stream-ID Debug</h3>
-        <p class="card-summary">How SMMU maps stream IDs to IOVA. STE, context banks, IOMMU fault log reading. Debugging SoC-level register accessibility issues at Qualcomm.</p>
-        <div class="card-tags"><span>SMMU</span><span>IOMMU</span><span>SoC Debug</span></div>
-        <a href="notes/smmu-concepts.html" class="card-link">Read notes →</a>
-      </article>
-
-      <article class="note-card reveal" data-topic="behavioral">
-        <div class="card-top"><span class="card-topic behavioral">Behavioral</span><span class="card-date">Add date</span></div>
-        <h3 class="card-title">STAR Stories — Verification Engineer</h3>
-        <p class="card-summary">Prepared answers: debugging RTL bugs at Qualcomm, cross-team collaboration, LLM automation impact, research at Cadence, ownership and initiative.</p>
-        <div class="card-tags"><span>STAR</span><span>Leadership</span><span>Impact</span></div>
-        <a href="notes/star-stories.html" class="card-link">Read notes →</a>
-      </article>
-
-    </div>
-    <p class="notes-cta">More notes added continuously as interview prep progresses.</p>
+    <p class="notes-cta">More folders and notes added as prep continues.</p>
   </section>
 
   <!-- CONTACT -->
