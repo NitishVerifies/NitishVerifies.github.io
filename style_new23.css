@@ -532,7 +532,6 @@ footer {
   .nav-hamburger { display: flex; }      /* show ☰ button        */
   .nav-resume { display: none; }         /* move resume to drawer */
 
-
   /* sections */
   .section { padding: 4rem 1.5rem; }
 
@@ -561,7 +560,7 @@ footer {
 @media (max-width: 600px) {
   /* nav */
   nav { padding: 0.8rem 1rem; }
-  
+
   /* sections */
   .section { padding: 3rem 1.25rem; }
 
